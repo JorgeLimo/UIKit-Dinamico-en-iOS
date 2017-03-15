@@ -18,6 +18,8 @@ class NuevoViewController: UIViewController {
     var btnAceptar:UIButton!
     var btnCancelar:UIButton!
     
+    var arregloVistas = Array<UIView>()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,19 +62,52 @@ class NuevoViewController: UIViewController {
         
         btnAceptar.setTitle("Aceptar", for: UIControlState.normal)
         btnAceptar.backgroundColor  = UIColor(red: 23/255.0, green: 206/255.0, blue: 255/255.0, alpha: 1.0)
+        btnAceptar.addTarget(self, action: #selector(aceptar), for: UIControlEvents.touchDown)
         self.view.addSubview(btnAceptar)
         
         btnCancelar = UIButton(frame: CGRect(x: self.view.frame.width - 40, y: self.view.frame.size.height - 60, width: 100, height: 30))
       
         
         btnCancelar.setTitle("Cancelar", for: UIControlState.normal)
-        
+        btnCancelar.addTarget(self, action: #selector(cancelar), for: UIControlEvents.touchDown)
+
         btnCancelar.backgroundColor  = UIColor(red: 23/255.0, green: 206/255.0, blue: 255/255.0, alpha: 1.0)
         
         self.view.addSubview(btnCancelar)
         
     }
 
+    func cancelar(){
+        
+        for vistas in arregloVistas {
+            vistas.removeFromSuperview()
+        }
+        
+        arregloVistas.removeAll()
+    }
+    
+    func aceptar(){
+        
+        if  arregloVistas.count == 0 {
+            
+            
+            for i in 1...8{
+                
+                let vista = UIView(frame: CGRect(x: (10*i), y: (10*i), width: 100, height: 100))
+                vista.backgroundColor = UIColor.red
+                self.view.addSubview(vista)
+                arregloVistas.append(vista)
+            }
+            
+            
+        }else{
+            
+            
+        }
+
+        
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
