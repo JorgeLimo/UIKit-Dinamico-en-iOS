@@ -56,6 +56,21 @@ class NuevoViewController: UIViewController {
         
         self.view.addSubview(sgswitch)
         
+        btnAceptar = UIButton(frame: CGRect(x: margen, y: self.view.frame.size.height - 60, width: 100, height: 30))
+        
+        btnAceptar.setTitle("Aceptar", for: UIControlState.normal)
+        btnAceptar.backgroundColor  = UIColor(red: 23/255.0, green: 206/255.0, blue: 255/255.0, alpha: 1.0)
+        self.view.addSubview(btnAceptar)
+        
+        btnCancelar = UIButton(frame: CGRect(x: self.view.frame.width - 40, y: self.view.frame.size.height - 60, width: 100, height: 30))
+      
+        
+        btnCancelar.setTitle("Cancelar", for: UIControlState.normal)
+        
+        btnCancelar.backgroundColor  = UIColor(red: 23/255.0, green: 206/255.0, blue: 255/255.0, alpha: 1.0)
+        
+        self.view.addSubview(btnCancelar)
+        
     }
 
     override func didReceiveMemoryWarning() {
