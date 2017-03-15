@@ -20,7 +20,27 @@ class NuevoViewController: UIViewController {
     
     var arregloVistas = Array<UIView>()
     
-
+    
+    let margen:CGFloat = 10;
+    
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        
+    
+        vwCabecera.frame = CGRect(x: 0, y: 0, width: self.view.frame.width , height: 70)
+        
+        lbltitulo.frame = vwCabecera.frame
+        
+        sgswitch.frame = CGRect(x: 10, y: vwCabecera.frame.size.height + margen, width: self.view.frame.width - (margen * 2), height: 30)
+        
+        btnAceptar.frame = CGRect(x: margen, y: self.view.frame.size.height - 60, width: 100, height: 30)
+        
+        btnCancelar.frame = CGRect(x: self.view.frame.width - 40, y: self.view.frame.size.height - 60, width: 100, height: 30)
+        
+        
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //con medida especifica
@@ -42,8 +62,6 @@ class NuevoViewController: UIViewController {
         lbltitulo.textAlignment = NSTextAlignment.center
         vwCabecera.addSubview(lbltitulo)
         
-        
-        let margen:CGFloat = 10;
         
         sgswitch = UISegmentedControl(frame: CGRect(x: 10, y: vwCabecera.frame.size.height + margen, width: self.view.frame.width - (margen * 2), height: 30))
         
