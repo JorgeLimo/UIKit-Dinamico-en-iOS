@@ -40,6 +40,22 @@ class NuevoViewController: UIViewController {
         lbltitulo.textAlignment = NSTextAlignment.center
         vwCabecera.addSubview(lbltitulo)
         
+        
+        let margen:CGFloat = 10;
+        
+        sgswitch = UISegmentedControl(frame: CGRect(x: 10, y: vwCabecera.frame.size.height + margen, width: self.view.frame.width - (margen * 2), height: 30))
+        
+        sgswitch.insertSegment(withTitle: "Primero", at: 0, animated: true)
+        sgswitch.insertSegment(withTitle: "Segundo", at: 1, animated: true)
+        
+        
+        sgswitch.tintColor = UIColor(red: 23/255.0, green: 206/255.0, blue: 255/255.0, alpha: 1.0)
+        
+        
+        sgswitch.selectedSegmentIndex = 0
+        
+        self.view.addSubview(sgswitch)
+        
     }
 
     override func didReceiveMemoryWarning() {
